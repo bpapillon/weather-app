@@ -2,7 +2,7 @@ import {
   UPDATE_SEARCH_TERM,
 } from './constants';
 
-export function updateSearchTerm(searchTerm) {
+export function updateSearchTermAction(searchTerm) {
   return {
     type: UPDATE_SEARCH_TERM,
     searchTerm,

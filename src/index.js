@@ -14,11 +14,8 @@ const rootReducer = combineReducers({
   app: appReducer,
 });
 
-// Provide a store to the Provider store prop.
-const store = () => createStore(rootReducer);
-
 ReactDOM.render((
-  <Provider store={store}>
+  <Provider store={createStore(rootReducer)}>
     <App />
   </Provider>
 ), document.getElementById('root'));

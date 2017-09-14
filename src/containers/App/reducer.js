@@ -1,4 +1,4 @@
-const {
+import {
   UPDATE_SEARCH_TERM,
 } from './constants';
 
