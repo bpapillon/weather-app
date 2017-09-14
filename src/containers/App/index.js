@@ -7,6 +7,7 @@ import SearchBar from '../../components/SearchBar';
 import WeatherList from '../../components/WeatherList';
 // Internals
 import {
+  addCityAction,
   updateSearchTermAction,
 } from './actions';
 import './styles.css';
@@ -14,10 +15,12 @@ import './styles.css';
 
 class App extends Component {
   render() {
-    const { searchTerm, updateSearchTerm } = this.props;
+    const { addCity, cities, searchTerm, updateSearchTerm } = this.props;
+
     return (
       <div className="app">
       	<SearchBar
+          addCity={addCity}
           updateSearchTerm={updateSearchTerm}
           searchTerm={searchTerm}
         />
@@ -28,19 +31,23 @@ class App extends Component {
 }
 
 App.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   searchTerm: PropTypes.string.isRequired,
   // Action creators
+  addCity: PropTypes.func.isRequired,
   updateSearchTerm: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ app }) => {
   return {
-    searchTerm: state.app.searchTerm,
+    cities: app.cities,
+    searchTerm: app.searchTerm,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addCity: (city) => dispatch(addCityAction(city)),
     updateSearchTerm: (event) => dispatch(updateSearchTermAction(event.target.value)),
   };
 };

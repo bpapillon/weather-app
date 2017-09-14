@@ -1,20 +1,39 @@
 // Dependencies
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { getWeatherDetails } from '../../api';
 
 
-const SearchBar = ({ searchTerm, updateSearchTerm }) => (
-  <input
-    className="search-bar"
-    onChange={updateSearchTerm}
-    type="text"
-    value={searchTerm}
-  />
-);
+class SearchBar extends Component {
+  static propTypes = {
+    searchTerm: PropTypes.string.isRequired,
+    addCity: PropTypes.func.isRequired,
+    updateSearchTerm: PropTypes.func.isRequired,
+  };
 
-SearchBar.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  updateSearchTerm: PropTypes.func.isRequired,
-};
+  onSearch = () => {
+    getWeatherDetails(this.props.searchTerm, ({ city }) => {
+      this.props.addCity(city);
+    });
+  }
+
+  render() {
+    const { onSearch } = this;
+    const { searchTerm, updateSearchTerm } = this.props;
+
+    return (
+      <div className="search-bar">
+        <input
+          onChange={updateSearchTerm}
+          onKeyDown={({ keyCode }) => keyCode === 13 ? onSearch() : undefined}
+          placeholder="Search for a city in the USA..."
+          type="text"
+          value={searchTerm}
+        />
+        <button onClick={onSearch}>Search</button>
+      </div>
+    );
+  }
+}
 
 export default SearchBar;
