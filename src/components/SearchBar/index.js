@@ -58,7 +58,7 @@ class SearchBar extends Component {
         <input
           onChange={onChangeHandler}
           onKeyDown={({ keyCode }) => keyCode === 13 ? onSearch() : undefined}
-          placeholder="Search for a city in the USA..."
+          placeholder="Search by city..."
           type="text"
           value={searchTerm}
         />

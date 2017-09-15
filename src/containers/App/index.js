@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Externals
 import SearchBar from '../../components/SearchBar';
-import WeatherList from '../../components/WeatherList';
+import Cities from '../../components/Cities';
 // Internals
 import {
   addCityAction,
@@ -24,7 +24,7 @@ class App extends Component {
           updateSearchTerm={updateSearchTerm}
           searchTerm={searchTerm}
         />
-      	<WeatherList cities={cities} />
+      	<Cities cities={cities} />
       </div>
     );
   }
