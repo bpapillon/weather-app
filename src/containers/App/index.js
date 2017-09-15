@@ -24,7 +24,7 @@ class App extends Component {
           updateSearchTerm={updateSearchTerm}
           searchTerm={searchTerm}
         />
-      	<WeatherList />
+      	<WeatherList cities={cities} />
       </div>
     );
   }
