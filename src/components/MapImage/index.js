@@ -8,7 +8,7 @@ import './styles.css';
 
 const MapImage = ({ lat, lng }) => (
   <div className="google-map">
-    <GoogleMapReact defaultZoom={10} defaultCenter={{ lat, lng }} />
+    <GoogleMapReact key={process.env.GOOGLE_MAPS_KEY} defaultZoom={10} defaultCenter={{ lat, lng }} />
   </div>
 );
 
