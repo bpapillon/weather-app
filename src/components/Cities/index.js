@@ -7,7 +7,6 @@ import City from '../City';
 // Internals
 import './styles.css';
 
-
 const Cities = ({ cities }) => (
   <div className="cities">
     {map(cities, ({ id, name, lat, lng, list }) => (

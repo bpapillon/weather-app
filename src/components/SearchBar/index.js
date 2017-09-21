@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getWeatherDetails } from '../../api';
 
+import './styles.css'
 
 class SearchBar extends Component {
   static propTypes = {
@@ -53,7 +54,7 @@ class SearchBar extends Component {
     const { error } = this.state;
 
     return (
-      <div className="search-bar">
+      <div className="searchform center">
         <p style={{ display: error ? 'inherit' : 'none' }}>Oops, something happened! Try again...</p>
         <input
           onChange={onChangeHandler}
@@ -62,7 +63,7 @@ class SearchBar extends Component {
           type="text"
           value={searchTerm}
         />
-        <button onClick={onSearch}>Search</button>
+        <button className="waves-effect waves-light btn" onClick={onSearch}>Search</button>
       </div>
     );
   }

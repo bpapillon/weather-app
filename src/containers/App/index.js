@@ -18,7 +18,7 @@ class App extends Component {
     const { addCity, cities, searchTerm, updateSearchTerm } = this.props;
 
     return (
-      <div className="app">
+      <div className="app container">
       	<SearchBar
           addCity={addCity}
           updateSearchTerm={updateSearchTerm}
